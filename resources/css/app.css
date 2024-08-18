@@ -1,9 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.body{
+    display: flex;
+    height: 210%;
+}
+.logo{
+    width: 50;
+}
+
+.auth{
+    display: flex;
+} 
+.auth div{
+    padding: 10px;
+} 
+.auth div i{
+    padding-right: 10px;
+}
+
 nav {
-    background-color: yellow;
+   padding: 5px;
+   display: grid;
+   grid-template-columns: 1fr auto;
+   align-items: center;
 }
-p{
-    color: aquamarine;
+.middle{
+    background-color: red;
+    padding: 2.5%;
+
 }
-body {
+.laragig {
+    margin-top: -1%;
+    padding-left: 45%;
+    margin-bottom: 1%;
+    font-size: xx-large;
+    font-weight: 1000;
+}
+.seperate{
+    display: flex;
+}
+.Lara{
+    color: white;
+}
+.disc-text{
+    color: white;
+    font-size: 16px;
+    padding-left: 42%;
+    margin-top: -1%;
+    margin-bottom: 1%;
+    word-spacing: 2px;
+    font-weight: 600;
+
+}
+.disc-button{
+    margin-left: 47%;
+    color: white;
+    align-self: center;
+
+    background: none;
+    border: none;    
+    outline: none;   
+    box-shadow: none;
+    cursor: pointer;
+    
+    border: 1px solid white; 
+    border-radius: 5px;  
+    padding: 8px;   
+    color: white; 
+
+    font-size: 10;
+}
+.search {
+    position: relative;
+}
+.search input{
+    width: 90%;
+    height: 6%;
+    margin: 10px;
+    padding: 10px 100px 10px 30px;
+}
+.search button{
+    background: none;
+    border: none;    
+    outline: none;   
+    box-shadow: none;
+    cursor: pointer;
+
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    padding: 1%;
+}
+.search i{
+    position: absolute;
+    top: 50%; 
+    left: 20px; 
+    transform: translateY(-50%);
+    color: grey;
+    font-size: 12;
+}
+.jobs{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /*Three equal-width columns*/
+    grid-template-rows: repeat(5, auto); 
+    /* Five rows, height will be automatic */
+    padding: 1%;
+    gap: 5px;
+}
+.item{
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Two columns inside each item */
+    grid-template-rows: repeat(5, 1fr); /* Five rows, each row has equal height */
+    grid-template-rows: 1px;
+    align-items: start; 
+    overflow: hidden;
+
+    border: 2px solid rgb(232, 230, 230);
+    background-color: rgb(241, 239, 239);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+.title{
+    margin-top:20px;
+}
+.company {
+    margin-top: 52px;
+    margin-bottom: -2px;
+    /* margin-top: -60px;
+    margin-bottom: 1px; */
+}
+.tags{
+    margin-top: -13%;
+}
+.location{
+    margin-top: 6%;
+    margin-bottom: -10%;
+}
+.img{
+    grid-column: 1 / 2; /* Place in the first column */
+    grid-row: 1 / 5; /* Span from row 1 to row 5 */
+    width: 80%; /* Make image fill the column width */
+    height: 80%; /* Make image fill the entire height */
+    object-fit: cover; /* Maintain aspect ratio, cover the area */
+    justify-self: center; /* Center horizontally */
+    align-self: center; /* Center vertically */
+}
+.title {
+    text-decoration: none;
+    color: black;
+    grid-column: 2 / 3; /* Place in the second column */
+    grid-row: 1 / 2; /* Place in the first row */
+    /* font-size: 18px; */
+    font-weight: bold;
+}
+.company {
+    grid-column: 2 / 3; /* Place in the second column */
+    grid-row: 2 / 3; /* Place in the second row */
+    /* font-size: 16px; */
+    color: #666;
+}
+.tags {
+    grid-column: 2 / 3; /* Place in the second column */
+    grid-row: 4 / 5; /* Place in the fourth row */
+    /* font-size: 14px; */
+    color: #999;
+}
+.location {
+    grid-column: 2 / 3; /* Place in the second column */
+    grid-row: 5 / 6; /* Place in the fifth row */
+    /* font-size: 14px; */
+    color: #888;
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background-color: rgba(255, 62, 0, 0.8);
+}
+.foot{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+
+}
+.foot p{
+    color: white;
+    padding: 2%;
+    width: 300px;
+    font-size: small;
+    font-weight: 600;
+}
+.foot button{
+    position: absolute;
+    border: 1px solid black;
     background-color: black;
+    padding: 0.4%;
+    width: 80;
+    font-size: small;
+    color: white; 
+    right: 2%;
+
 }

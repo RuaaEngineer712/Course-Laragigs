@@ -1,8 +1,7 @@
 
 <link href="{{ asset('/css/app.css') }}" rel="stylesheet"> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-
+@vite('resources/css/app.css')
 
 <nav> 
     <img class = "logo" src = "{{ asset('images/logo.png') }}"/>
@@ -20,10 +19,9 @@
             <h1>GIGS</h1>
         </div>
     </div>
-
         
     <div class = "discription">
-        <h1 class = "disc-text">Find or post Laravel jobs & project</h1>
+        <h1 class = "disc-text">Find or post Laravel jobs & projects</h1>
         <button class="disc-button">SIGN UP To List A GIG</button>
     </div>
 </div>    
@@ -56,12 +54,13 @@
     
 </div>
 
-{{ $jobs->links() }}
-
-
 <footer>
-    <div>
-        <p>copyright @ 2022, All Right reserved</p>
-        <button>Post Job</button>
+        <div class="foot">
+            <p>Copyright @ 2022, All Right reserved</p>
+            <button>Post Job</button>
+        </div>
     </div>
 </footer>
+
+{{ $jobs->links() }}
+
