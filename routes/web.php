@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
@@ -10,15 +11,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/job', [JobController::class, 'index']);
+// Route::get('/auth/register', RegisteredUserController::class);
 
-Route::get('/job/{id}', function($id){
-    return view('job',['job'=>Job::find($id)]);
-});
+
+Route::resource('/job', JobController::class);
+
+// Route::get('/job', [JobController::class, 'index']);
+
+Route::get('/job/{id}', [JobController::class, 'show'])->name('Job.show');
+
+
+// Route::get('/job/{id}', [JobController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

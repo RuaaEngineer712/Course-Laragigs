@@ -12,8 +12,8 @@ class JobController extends Controller
      */
     public function index()
     {
-        $listings = Job::orderBy("created_at","desc")->paginate(10);
-        return view('Listing', ['jobs'=> $listings]);
+        $jobs = Job::orderBy("created_at","desc")->paginate(10);
+        return view('Job.index', ['jobs'=> $jobs]);
     }
 
     /**
@@ -35,15 +35,17 @@ class JobController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Job $listing)
+    public function show(Job $job)
     {
-        //
+        return view('Job.show', ['job' => $job]);
+
+
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Job $listing)
+    public function edit(Job $job)
     {
         //
     }
@@ -51,7 +53,7 @@ class JobController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Job $listing)
+    public function update(Request $request, Job $job)
     {
         //
     }
@@ -59,7 +61,7 @@ class JobController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Job $listing)
+    public function destroy(Job $job)
     {
         //
     }
