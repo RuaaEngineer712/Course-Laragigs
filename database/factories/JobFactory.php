@@ -20,7 +20,7 @@ class JobFactory extends Factory
         return [
             'title' => fake()->sentence('2'),
             'discreption' => fake()->paragraph(10),
-            'tags' => 'laravel, api, backend',
+            'tags' => 'laravel, api, java',
             'company' => fake()->company(),
             'email' => fake()->companyEmail(),
             'website' => fake()->url(),

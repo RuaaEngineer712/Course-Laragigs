@@ -9,20 +9,3 @@
         <div><a href = "#"><i class="fas fa-sign-in-alt"></i>Login</a></div>
     </div>
 </nav>
-
-
-
-
-<main>
-    @yield('content')
-</main>
-
-</body>
-
-{{-- <footer>
-    <div class="foot">
-        <p>Copyright @ 2022, All Right reserved</p>
-        <button>Post Job</button>
-    </div>
-</div>
-</footer> --}}

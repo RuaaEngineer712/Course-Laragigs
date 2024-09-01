@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
@@ -12,7 +13,8 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::orderBy("created_at","desc")->paginate(10);
+        $jobs = Job::latest()->filter(request(['tag', 'search']))->get();
+        // $jobs = Job::orderBy("created_at","desc")->paginate(10);
         return view('Job.index', ['jobs'=> $jobs]);
     }
 
