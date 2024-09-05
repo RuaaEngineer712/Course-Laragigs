@@ -25,7 +25,7 @@ class JobFactory extends Factory
             'email' => fake()->companyEmail(),
             'website' => fake()->url(),
             'location' => fake()->city(),
-
+            'logo' => fake()->image()
         ];
     }
 }

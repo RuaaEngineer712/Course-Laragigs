@@ -5,7 +5,7 @@
     <a href = "/job"><img class = "logo" src = "{{ asset('images/logo.png') }}"/></a>
 
     <div class = "auth">
-        <div><a href = "auth/register"><i class="fas fa-user-plus"></i>Registeration</a></div>
+        <div><a href = "register"><i class="fas fa-user-plus"></i>Registeration</a></div>
         <div><a href = "#"><i class="fas fa-sign-in-alt"></i>Login</a></div>
-    </div>
+    </div> 
 </nav>

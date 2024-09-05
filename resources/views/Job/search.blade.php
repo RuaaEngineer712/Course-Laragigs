@@ -8,5 +8,4 @@
         <input name = "search" placeholder = "search Laravel Gigs...">
         <button>Search</button>
     </form>
-    
 </div> 

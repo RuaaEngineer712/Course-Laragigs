@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Job extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'discreption', 'tags', 'company', 'email', 'website', 'location']; 
+    protected $fillable = ['title', 'discreption', 'tags', 'company', 'email', 'website', 'location', 'logo']; 
 
     public function scopeFilter($query, array $filters){
         if($filters['tags'] ?? false){

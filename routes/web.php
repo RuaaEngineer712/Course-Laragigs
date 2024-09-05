@@ -7,18 +7,18 @@ use App\Http\Controllers\JobController;
 use App\Models\Job;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// Route::get('/auth/register', RegisteredUserController::class);
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
-Route::resource('/job', JobController::class);
+// Route::middleware(['auth','verified'])->group(function () {
+    Route::resource('/job', JobController::class);
+// });
 
-// Route::get('/job', [JobController::class, 'index']);
 
-Route::get('/job/{id}', [JobController::class, 'show'])->name('Job.show');
+// Route::get('/job/create', [JobController::class, 'create'])->name('job.create');
+// Route::post('/job/store', [JobController::class, 'store'])->name('job.store');
 
 
 // Route::get('/job/{id}', [JobController::class, 'show']);

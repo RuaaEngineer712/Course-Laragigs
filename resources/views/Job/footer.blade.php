@@ -2,7 +2,7 @@
 @vite('resources/css/app.css')
 
 <footer>
-    <form>
+    <form action = {{ route('job.create') }}>
         <div class="foot">
             <p>Copyright @ 2022, All Right reserved</p>
             <button>Post Job</button>

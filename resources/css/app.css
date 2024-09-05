@@ -332,3 +332,48 @@ hr{
     padding: 0.6%;
     margin-top: 2%;
 }
+.create-head{
+    display: grid;
+    justify-items: center;
+}
+.create-head h1{
+    font-weight: 700;
+    font-size: xx-large;
+}
+.create{
+    display: grid;
+    justify-items: center;
+    margin: 3%;
+    margin-left: 27%;
+    margin-right: 27%;
+    white-space: 10;
+    border: 1px solid rgb(232, 230, 230);
+    background-color: rgb(241, 239, 239);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    padding: 2%;
+}
+.create h1{
+    margin: 5px;
+    justify-self: baseline;
+    margin-left: 23%;
+}
+.create input{
+    border: 1px solid rgb(232, 230, 230);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    margin-left: 10%;
+    width: 64%;
+    height: 100%;
+}
+.create-button{
+    background: none;
+    border: none;    
+    outline: none;   
+    box-shadow: none;
+    cursor: pointer;
+
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 0.6%;
+    margin-top: 2%;
+}

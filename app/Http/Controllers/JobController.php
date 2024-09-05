@@ -13,8 +13,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::latest()->filter(request(['tag', 'search']))->get();
-        // $jobs = Job::orderBy("created_at","desc")->paginate(10);
+        $jobs = Job::latest()->filter(request(['tag', 'search']))->paginate(10);
         return view('Job.index', ['jobs'=> $jobs]);
     }
 
@@ -23,7 +22,7 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        return view('Job.create');
     }
 
     /**
@@ -31,8 +30,24 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $data = $request->validate([
+            'company' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'title' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'website' => 'nullable|url',
+            'tags' => 'nullable|string',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'discreption' => 'required|string',
+        ]);
+
+        $data['user_id'] = 1;
+
+        $job = Job::create($data);
+
+        return to_route('job.index', $job)->with('success', 'Job created successfully');
+    }   
+
 
     /**
      * Display the specified resource.
