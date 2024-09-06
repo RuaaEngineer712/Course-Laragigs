@@ -10,7 +10,7 @@
         <div class = "item">
             {{-- <img src="{{ asset('storage/' . $job->logo) }}" alt="Company Logo" class = "img"> --}}
 
-            <img src = "{{ asset ('images/logo.png') }}" class = "img"/>
+            <img src = "{{ url('storage/' . $job->logo) }}" class = "img"/>
 
             <a href = "{{ route('job.show', $job->id) }}"  class = "title">
                 <h1>{{ $job->title }}</h1>
