@@ -13,7 +13,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::latest()->filter(request(['tag', 'search']))->paginate(10);
+        $jobs = Job::latest()->filter(request(['tags', 'search']))->paginate(10);
         return view('Job.index', ['jobs'=> $jobs]);
     }
 
@@ -30,16 +30,22 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $data = $request->validate([
             'company' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'title' => 'required|string|max:255',
             'location' => 'required|string|max:255',
-            'website' => 'nullable|url',
-            'tags' => 'nullable|string',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+            'website' => 'required|url',
+            'tags' => 'required|string',
+            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'discreption' => 'required|string',
         ]);
+
+        if ($request->hasFile('logo')) {
+            $data['logo'] = $request->file('logo')->store('logos', 'public'); // Save image in "logos" directory
+        }
+
 
         $data['user_id'] = 1;
 
@@ -54,9 +60,8 @@ class JobController extends Controller
      */
     public function show(Job $job)
     {
+        // dd($job->logo);
         return view('Job.show', ['job' => $job]);
-
-
     }
 
     /**

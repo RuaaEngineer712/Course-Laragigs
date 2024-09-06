@@ -10,6 +10,6 @@
 
 <div class = "tags-inline-index">
     @foreach ($tags as $tag)
-        <a href = "?/tag = {{$tag}}" class = "job-tags-index"><p>{{$tag}}</p></a>
+        <a href = "?tags={{ $tag }}" class = "job-tags-index"><p>{{$tag}}</p></a>
     @endforeach
 </div>

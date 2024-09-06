@@ -8,15 +8,14 @@
 <body class = "single-job">  
     <a href="/job"><i class="fas fa-arrow-left"></i>Back</a>
     <div class = "job-item">
-        <img src = "{{ asset('images/no-image.png') }}" class = "job-img"/>
+        <img src = "{{ url('storage/' . $job->logo) }}" class = "job-img"/>
+        {{-- <img src="{{'storage/app/public/logos' . $job->logo }}" alt="Company Logo" class = "job-img"> --}}
+
+        {{-- <img src = "{{ $job->logo }}" class = "job-img"/> --}}
         <h1 class = "job-title"> {{ $job->title }} </h1>
         <h1 class = "job-company"> {{ $job->company }} </h1>
-        {{-- <p class = "job-tags"> {{ $job->tags }} </p> --}}
-        <section class="tags-inline">
-            <p class = "job-tags"> API </p>
-            <p class = "job-tags"> java </p>
-            <p class = "job-tags"> laravel </p>
-        </section>
+        <x-tags  :tagCsv="$job->tags"/>
+
         
         <p class = "job-location">
             <i class = "fas fa-map-marker-alt location-icon"></i>
@@ -27,10 +26,10 @@
             <h1>Job Discreption </h1>
             {{ $job->discreption }} 
         </div><br>
-        <button class = "red-button">
+        <a href = "mailto:{{ $job->email }}"><button class = "red-button" >
             <i class="fas fa-envelope"></i>
             Contact Employer
-        </button>
+        </button></a>
         <a href = "{{ $job->website }}"><button class = "black-button" >
             <i class="fas fa-globe"></i>
             Visit Website
