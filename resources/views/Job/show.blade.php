@@ -6,15 +6,24 @@
 @include('Job.search')
 
 <body class = "single-job">  
-    <a href="/job"><i class="fas fa-arrow-left"></i>Back</a>
+    <a href="/job" class = "back"><i class="fas fa-arrow-left"></i>Back</a>
     <div class = "job-item">
         <img src = "{{ url('storage/' . $job->logo) }}" class = "job-img"/>
-        {{-- <img src="{{'storage/app/public/logos' . $job->logo }}" alt="Company Logo" class = "job-img"> --}}
-
-        {{-- <img src = "{{ $job->logo }}" class = "job-img"/> --}}
         <h1 class = "job-title"> {{ $job->title }} </h1>
         <h1 class = "job-company"> {{ $job->company }} </h1>
-        <x-tags  :tagCsv="$job->tags"/>
+
+
+        @php
+            $tags = explode(',', $job->tags);
+        @endphp
+
+
+        <div class = "tags-inline-index-single">
+            @foreach ($tags as $tag)
+                <a href = "?tags={{ $tag }}" class = "job-tags-index-single"><p>{{$tag}}</p></a>
+            @endforeach
+        </div>
+        {{-- <x-tags  :tagCsv="$job->tags"/> --}}
 
         
         <p class = "job-location">

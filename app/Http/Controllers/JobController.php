@@ -43,7 +43,7 @@ class JobController extends Controller
         ]);
 
         if ($request->hasFile('logo')) {
-            $data['logo'] = $request->file('logo')->store('logos', 'public'); // Save image in "logos" directory
+            $data['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
 

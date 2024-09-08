@@ -1,24 +1,28 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Requests\Auth\LoginRequest;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use App\Models\Job;
+use Illuminate\Support\Facades\Auth;
+
 
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
-
-// Route::middleware(['auth','verified'])->group(function () {
-    Route::resource('/job', JobController::class);
-// });
+Route::resource('/job', JobController::class)->middleware('verified');
 
 
-// Route::get('/job/create', [JobController::class, 'create'])->name('job.create');
-// Route::post('/job/store', [JobController::class, 'store'])->name('job.store');
+
+Route::middleware(['auth','verified'])->group(function () {
+    Route::resource('/job', JobController::class)->middleware('verified');
+});
+
+// Auth::routes(['verify' => true]);
 
 
 // Route::get('/job/{id}', [JobController::class, 'show']);
