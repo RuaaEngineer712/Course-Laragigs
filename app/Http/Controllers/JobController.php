@@ -14,7 +14,9 @@ class JobController extends Controller
     public function index()
     {
         $jobs = Job::latest()->filter(request(['tags', 'search']))->paginate(10);
+        // dd(count($jobs));
         return view('Job.index', ['jobs'=> $jobs]);
+        
     }
 
     /**
@@ -87,4 +89,5 @@ class JobController extends Controller
     {
         //
     }
+    
 }

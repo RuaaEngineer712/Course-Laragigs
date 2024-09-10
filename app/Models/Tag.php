@@ -14,4 +14,11 @@ class Tag extends Model
     protected $casts = [
         'tags' => 'array', // Automatically cast 'tags' attribute to array
     ];
+
+    public function scopeFilter($query, array $filters){
+        if($filters['tags'] ?? false){
+            $query->where('tags', 'like', '%' . request('tags') . '%');
+            // dd(count($tags));
+        }
+    }
 }

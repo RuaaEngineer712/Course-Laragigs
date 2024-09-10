@@ -1,8 +1,8 @@
-@include('Job.nav')
+@include('job.nav')
 
-@include('Job.background')
+@include('job.background')
 
-@include('Job.search')
+@include('job.search')
 
 <div class = "jobs">
     

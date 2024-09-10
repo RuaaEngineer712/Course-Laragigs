@@ -108,6 +108,7 @@ nav {
 .jobs{
     display: grid;
     grid-template-columns: repeat(2, 1fr); /*Three equal-width columns*/
+    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
     grid-template-rows: repeat(5, auto); 
     /* Five rows, height will be automatic */
     padding: 1%;
@@ -118,6 +119,7 @@ nav {
     grid-template-columns: 1fr 2fr; /* Two columns inside each item */
     grid-template-rows: repeat(5, 1fr); /* Five rows, each row has equal height */
     grid-template-rows: 1px;
+    aspect-ratio: 3/1;
     align-items: start; 
     overflow: hidden;
 

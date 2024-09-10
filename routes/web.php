@@ -16,13 +16,14 @@ use Illuminate\Support\Facades\Auth;
 
 Route::resource('/job', JobController::class)->middleware('verified');
 
+// Route::post('/logout', [AuthenticatedSessionController::class, 'logout'])->name('logout');
 
 
 Route::middleware(['auth','verified'])->group(function () {
     Route::resource('/job', JobController::class)->middleware('verified');
 });
 
-// Auth::routes(['verify' => true]);
+// Auth::routes();
 
 
 // Route::get('/job/{id}', [JobController::class, 'show']);

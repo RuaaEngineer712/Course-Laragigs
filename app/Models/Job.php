@@ -13,6 +13,7 @@ class Job extends Model
     public function scopeFilter($query, array $filters){
         if($filters['tags'] ?? false){
             $query->where('tags', 'like', '%' . request('tags') . '%');
+            // dd(count($tags));
         }
         else if($filters['search'] ?? false){
             $query->where('title', 'like', '%' . request('search') . '%')
