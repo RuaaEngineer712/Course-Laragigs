@@ -4,18 +4,27 @@ namespace App\Http\Controllers;
 
 use App\Models\Job;
 use App\Models\Tag;
+use Exception;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $jobs = Job::latest()->filter(request(['tags', 'search']))->paginate(10);
-        // dd(count($jobs));
+        $jobs = Job::query()
+        ->when(auth()->check(), function ($query) {
+            return $query->where('user_id', auth()->id());
+        })
+        ->latest()
+        ->filter(request(['tags', 'search'])) // Filter by tags and search if available
+        ->paginate(10);
         return view('Job.index', ['jobs'=> $jobs]);
+        
+        
         
     }
 
@@ -40,7 +49,7 @@ class JobController extends Controller
             'location' => 'required|string|max:255',
             'website' => 'required|url',
             'tags' => 'required|string',
-            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo' => 'nullable|image|max:2048', 
             'discreption' => 'required|string',
         ]);
 
@@ -49,21 +58,23 @@ class JobController extends Controller
         }
 
 
-        $data['user_id'] = 1;
+        $data['user_id'] = $request->user()->id;
 
         $job = Job::create($data);
 
-        return to_route('job.index', $job)->with('success', 'Job created successfully');
+        return to_route('job.index', $job)->with('message', 'Job created successfully');
     }   
 
 
     /**
      * Display the specified resource.
      */
-    public function show(Job $job)
+    public function show($id)
     {
-        // dd($job->logo);
-        return view('Job.show', ['job' => $job]);
+        $job = Job::find($id);
+    
+        // dd($job->title);
+        return view('job.show', ['job' => $job]);
     }
 
     /**

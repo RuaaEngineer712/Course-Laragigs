@@ -28,7 +28,7 @@ nav {
 
 
 .middle{
-    background-color: red;
+    background-color: black;
     padding: 2.5%;
 
 }
@@ -47,6 +47,9 @@ nav {
 }
 .Lara{
     color: white;
+}
+.gigs{
+    color:red;
 }
 .disc-text{
     color: white;
@@ -184,6 +187,7 @@ footer {
     position: fixed;
     bottom: 0px;
     width: 100%;
+    height: 7%;
     background-color: rgba(255, 62, 0, 0.8);
 }
 .foot{
@@ -194,6 +198,7 @@ footer {
 
 }
 .foot p{
+    /* display:; */
     color: white;
     padding: 2%;
     width: 300px;
@@ -409,4 +414,16 @@ hr{
     margin-top: 5px;
     font-size: 0.9em;
     color: red;
+}
+.message{
+    color: white;
+    background-color: chartreuse;
+    top: 0px;
+    left: -3%;
+    position: fixed;
+    transform: translateX(50%);
+    padding-left: 12rem;
+    padding-right: 12rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
 }

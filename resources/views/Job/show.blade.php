@@ -46,4 +46,4 @@
     </div>
 </body>
 
-@include('Job.footer')
+@include('job.footer')

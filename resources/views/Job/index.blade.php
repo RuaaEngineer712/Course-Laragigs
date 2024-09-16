@@ -42,5 +42,9 @@
 </div>
 {{ $jobs->links() }}
 
-@include('Job.footer')
+<x-flash-messege />
+
+@auth
+    @include('Job.footer') 
+@endauth
 

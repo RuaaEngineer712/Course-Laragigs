@@ -5,24 +5,23 @@
     <a href = "/job"><img class = "logo" src = "{{ asset('images/logo.png') }}"/></a>
 
     <div class = "auth">
-        @guest
-            <div><a href = "register"><i class="fas fa-user-plus"></i>Registeration</a></div>
-            <div><a href = "login"><i class="fas fa-sign-in-alt"></i>Login</a></div>
-            @else
-                <div>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="fas fa-sign-in-alt"></i> Logout
-                    </a>
-                </div>
-        @endguest
+        @auth
+        <!-- Show Logout link for authenticated users -->
+        <div>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    @endauth
 
-
-        {{-- @auth
-            <div><a href = "{{route('logout')}}"><i class="fas fa-sign-in-alt"></i>Logout</a></div>     
-        @endauth --}}
+    @guest
+        <!-- Show Register and Login links for guests -->
+        <div><a href="{{ route('register') }}"><i class="fas fa-user-plus"></i> Registration</a></div>
+        <div><a href="{{ route('login') }}"><i class="fas fa-sign-in-alt"></i> Login</a></div>
+    @endguest
 
 
         

@@ -5,7 +5,7 @@
     <div class = "laragig">
         <div class = "seperate">
             <h1 class = "Lara">LARA</h1>
-            <h1>GIGS</h1>
+            <h1 class = "gigs">GIGS</h1>
         </div>
     </div>
         
