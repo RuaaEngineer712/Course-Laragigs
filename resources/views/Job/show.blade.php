@@ -5,6 +5,9 @@
 
 @include('Job.search')
 
+<x-flash-messege />
+
+
 <body class = "single-job">  
     <a href="/job" class = "back"><i class="fas fa-arrow-left"></i>Back</a>
     <div class = "job-item">
@@ -44,6 +47,21 @@
             Visit Website
         </button></a>
     </div>
+    @auth
+        <div class = "single-job">
+            <div class = "job-item">
+                <button class = "edit-button"><a href = "{{ route('job.edit', $job->id) }}">Edit</a></button>
+                <form action="{{ route('job.destroy', $job) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="delete-button">Delete</button>
+                </form>
+                {{-- <button class = "delete-button"><a href = "{{ route('job.destroy', $job->id) }}">Delete</a></button> --}}
+            </div>
+        </div>
+    @endauth
+
+
 </body>
 
-@include('job.footer')
+{{-- @include('job.footer') --}}

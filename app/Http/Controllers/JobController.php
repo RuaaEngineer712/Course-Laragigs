@@ -72,8 +72,6 @@ class JobController extends Controller
     public function show($id)
     {
         $job = Job::find($id);
-    
-        // dd($job->title);
         return view('job.show', ['job' => $job]);
     }
 
@@ -82,7 +80,9 @@ class JobController extends Controller
      */
     public function edit(Job $job)
     {
-        //
+        // dd($job->title);
+        // $job = Job::find($job);
+        return view('job.edit', ['job' => $job]);
     }
 
     /**
@@ -90,15 +90,44 @@ class JobController extends Controller
      */
     public function update(Request $request, Job $job)
     {
-        //
+        $data = $request->validate([
+            'company' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'title' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'website' => 'required|url',
+            'tags' => 'required|string',
+            'logo' => 'nullable|image|max:2048', 
+            'discreption' => 'required|string',
+        ]);
+
+        if ($request->hasFile('logo')) {
+            $data['logo'] = $request->file('logo')->store('logos', 'public');
+        }
+
+
+        $data['user_id'] = $request->user()->id;
+        if ($job) {
+            $job->update($data);
+        } else {
+            return redirect()->back()->with('error', 'Job not found');
+        }
+
+        // $job = Job::update($data);
+
+        return to_route('job.show', $job)->with('message', 'Job updated successfully');
+    
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Job $job)
+    public function destroy($id)
     {
-        //
+        // dd(Job::find($id));
+        $job = Job::find($id);
+        $job->delete();
+        return to_route('job.index', $job)->with('message', 'Job deleted successfully');
     }
     
 }

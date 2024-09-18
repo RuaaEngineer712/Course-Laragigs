@@ -427,3 +427,11 @@ hr{
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
 }
+.update-button{
+    color : white;
+    background-color: blue;
+}
+.delete-button{
+    color: white;
+    background-color: red;
+}
