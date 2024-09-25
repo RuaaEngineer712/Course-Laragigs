@@ -17,6 +17,9 @@ Route::middleware(['auth','verified'])->group(function () {
 });
 
 Route::get('/job/{id}', [JobController::class, 'show'])->name('job.show');
+// Route::get('/job/{id}', [JobController::class, 'destroy'])->name('job.destroy');
+// Route::get('/job/{id}', [JobController::class, 'edit'])->name('job.edit');
+
 
 
 

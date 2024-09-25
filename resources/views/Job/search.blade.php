@@ -4,7 +4,7 @@
 
 <div class = "search">
     <form action="/job">
-        <i class="fas fa-search search-icon"></i>
+        <i class="fas fa-search search-icon {{ $customClass ?? '' }}"></i>
         <input name = "search" placeholder = "search Laravel Gigs...">
         <button>Search</button>
     </form>

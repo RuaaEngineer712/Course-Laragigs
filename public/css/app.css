@@ -102,12 +102,22 @@ nav {
 }
 .search i{
     position: absolute;
-    top: 50%; 
-    left: 20px; 
+    top: 53%;
+    left: 23px; 
     transform: translateY(-50%);
     color: grey;
     font-size: 12;
 }
+/* .search-single i{
+    padding-top: 0%;
+    padding-left: 0%;
+    /* position: absolute; */
+    /* top: 53%; */
+    /* left: 3px; */
+    /* transform: translateY(-70%); */
+    /* color: grey; */
+    /* font-size: 12; */
+/* } */ 
 .jobs{
     display: grid;
     grid-template-columns: repeat(2, 1fr); /*Three equal-width columns*/
@@ -217,8 +227,8 @@ footer {
 
 }
 .single-job i{
-    padding-top: 1%;
-    padding-left: 2%;
+    padding-top: 0%;
+    padding-left: 0%;
 }
 .job-img{
     padding: 10%;
@@ -276,7 +286,7 @@ footer {
     background-color: black;
     text-align: center;
     border-radius: 40% 40%;
-    width: 15%;
+    width: 39%;
     height: 100%;
     padding: 1px;
     margin-right: 8px;
@@ -426,4 +436,15 @@ hr{
     padding-right: 12rem;
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
+}   
+.delete{
+    background-color: red;
+    border-radius: 50%;
+}
+.delete{
+    background-color: blue;
+    border-radius: 50%;
+}
+.update{
+    margin:100px;
 }
