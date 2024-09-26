@@ -11,7 +11,7 @@
         
     <div class = "discription">
         <h1 class = "disc-text">Find or post Laravel jobs & projects</h1>
-        <button class="disc-button">SIGN UP To List A GIG</button>
+        <a href = {{ route('register') }}><button class="disc-button">SIGN UP To List A GIG</button></a>
     </div>
 </div>    
 
